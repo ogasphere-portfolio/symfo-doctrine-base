@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Entity;
-
-use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PostRepository;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
@@ -33,19 +33,30 @@ class Post
     private $nbLikes;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $publishedAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $updatedAt;
+
+    public function __construct()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));    
+        if ($this->getCreatedAt() === null) {
+        $this->setCreatedAt(new \DateTime('now'));
+         }
+         if ($this->getPublishedAt() === null) {
+            $this->setPublishedAt(new \DateTime('now'));
+             }
+    }
 
     public function getId(): ?int
     {
@@ -88,36 +99,36 @@ class Post
         return $this;
     }
 
-    public function getPublishedAt(): ?\DateTimeImmutable
+    public function getPublishedAt() : ?DateTime
     {
-        return $this->publishedAt;
+        return $this->publishedAt = new \DateTime();;
     }
 
-    public function setPublishedAt(\DateTimeImmutable $publishedAt): self
+    public function setPublishedAt(\DateTime $publishedAt): self
     {
         $this->publishedAt = $publishedAt;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt() : ?DateTime
     {
-        return $this->createdAt;
+        return $this->createdAt = new \DateTime();;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt() : ?DateTime
     {
-        return $this->updatedAt;
+        return $this->updatedAt = new \DateTime();
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    public function setUpdatedAt(\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 

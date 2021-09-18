@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
+
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -14,9 +15,10 @@ class PostFormType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('body')
+            ->add('body', TextareaType::class, ['attr' => ['class' => 'tinymce']])
             ->add('nbLikes')
-            ->add('submit', SubmitType::class)
+            
+            ->add('submit', SubmitType::class, array('label' => 'Envoyer'))
         ;
     }
 
