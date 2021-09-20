@@ -26,35 +26,12 @@ class PostController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($post);
             $entityManager->flush();
+            return $this->redirectToRoute('posts');
         }
 
         return $this->render("post/post-form.html.twig", [
             "form_title" => "Ajouter un post",
             "form_post" => $form->createView(),
-        ]);
-    }
-
-    /**
-    * @Route("/posts", name="posts")
-    */
-    public function posts()
-    {
-        $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
-
-        return $this->render('post/posts.html.twig', [
-            "posts" => $posts,
-        ]);
-    }
-
-    /**
-    * @Route("/post/{id}", name="post")
-    */
-    public function post(int $id): Response
-    {
-        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
-
-        return $this->render("post/post.html.twig", [
-            "post" => $post,
         ]);
     }
 
@@ -80,6 +57,31 @@ class PostController extends AbstractController
             "form_post" => $form->createView(),
         ]);
     }
+    /**
+    * @Route("/", name="posts")
+    */
+    public function posts()
+    {
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
+
+        return $this->render('post/posts.html.twig', [
+            "posts" => $posts,
+        ]);
+    }
+
+    /**
+    * @Route("/post/{id}", name="post")
+    */
+    public function post(int $id): Response
+    {
+        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
+
+        return $this->render("post/post.html.twig", [
+            "post" => $post,
+        ]);
+    }
+
+    
 
     /**
      * @Route("/delete-post/{id}", name="delete_post")
@@ -94,3 +96,21 @@ class PostController extends AbstractController
         return $this->redirectToRoute("posts");
     }
 }
+
+    /* Une autre maniére de faire en passant juste l'entité en paramétre ( moins de code )
+    /**
+     * @Route("/post/{id}", name="post_read", requirements={"id"="\d+"}, methods={"GET"})
+     */
+ /*    public function read(Post $post): Response
+    {
+        // lorsque l'on typehint une variable avec une entité doctrine
+        // symfony va exécuter le find et nous fournir directement l'entité souhaitée
+        //  - attention il faut que le paramètre puisse identifier de manière certaine un seul élément (c'est à que ce soit un champ unique ou une clef étrangère)
+        // récupérer le post dont l'identifiant est fournit dans l'url
+        // $post = $postRepository->find($id);
+
+        // le fournir à la vue
+        return $this->render('post/read.html.twig', [
+            'post' => $post,
+        ]);
+    }  */

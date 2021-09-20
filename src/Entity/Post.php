@@ -50,12 +50,13 @@ class Post
     public function __construct()
     {
         $this->setUpdatedAt(new \DateTime('now'));    
+        
         if ($this->getCreatedAt() === null) {
-        $this->setCreatedAt(new \DateTime('now'));
-         }
-         if ($this->getPublishedAt() === null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+        if ($this->getPublishedAt() === null) {
             $this->setPublishedAt(new \DateTime('now'));
-             }
+        }
     }
 
     public function getId(): ?int

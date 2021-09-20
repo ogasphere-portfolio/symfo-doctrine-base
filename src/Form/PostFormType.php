@@ -5,10 +5,13 @@ namespace App\Form;
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 class PostFormType extends AbstractType
 {
@@ -16,7 +19,7 @@ class PostFormType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('body', TextareaType::class, ['attr' => ['_id_part' => 'tiny']])
+            ->add('body',  CKEditorType::class,)
             ->add('nbLikes')
             
             ->add('submit', SubmitType::class, array('label' => 'Envoyer'))

@@ -1,2 +1,5 @@
 kms_froala_editor:
   language: "nl"
+  toolbarInline: true
+  tableColors: [ "#FFFFFF", "#FF0000" ]
+  saveParams: { "id" : "myEditorField" }
