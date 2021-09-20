@@ -3,22 +3,26 @@
 {% block title %}Hello PostController!{% endblock %}
 
 {% block body %}
-<h1>Lise des produits</h1>
-<p><a href="{{ path('add_post') }}">Ajouter un article</a></p>
-{% for post in posts %}
-    <table>
-        <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-        </thead>
-        <tbody>
-            <td>{{ post.id }}</td>
-            <td><a href="{{ path('post', {'id': post.id}) }}">{{ post.title }}</a></td>
-            <td>{{ post.body }}</td>
-            <td><a href="{{ path('modify_post', {'id': post.id}) }}">Modifier</a></td>
-             <td><a href="{{ path('delete_post', {'id': post.id}) }}">Supprimer</a></td>
-        </tbody>
-    </table>
-{% endfor %}
+
+    <h1>Lise des produits</h1>
+    <h3><a href="{{ path('add_post') }}">Ajouter un article</a></h3>
+    <div class="table-responsive">
+        <table  class="table table-striped table-secondary table-hover">
+            <thead>
+                <th scope="col">ID</th>
+                <th scope="col">Contenu</th>
+            </thead>
+            {% for post in posts %}
+            <tbody>
+        
+                <th scope="row">{{ post.id }}</th>
+                <td><h4><a href="{{ path('post', {'id': post.id}) }}">{{ post.title }} </a></h4> <br>{{ post.body }}</td>
+                <td><a href="{{ path('modify_post', {'id': post.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('delete_post', {'id': post.id}) }}">Supprimer</a></td>
+                
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+   
 {% endblock %}

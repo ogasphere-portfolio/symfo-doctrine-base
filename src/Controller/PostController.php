@@ -72,6 +72,7 @@ class PostController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $entityManager->flush();
+            return $this->redirectToRoute('posts');
         }
 
         return $this->render("post/post-form.html.twig", [

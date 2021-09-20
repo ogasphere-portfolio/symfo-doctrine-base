@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PostFormType extends AbstractType
 {
@@ -15,7 +16,7 @@ class PostFormType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('body', TextareaType::class, ['attr' => ['class' => 'tinymce']])
+            ->add('body', TextareaType::class, ['attr' => ['_id_part' => 'tiny']])
             ->add('nbLikes')
             
             ->add('submit', SubmitType::class, array('label' => 'Envoyer'))
