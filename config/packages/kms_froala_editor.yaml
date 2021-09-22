@@ -3,8 +3,4 @@ twig:
         - '@KMSFroalaEditor/Form/froala_widget.html.twig'
 
 kms_froala_editor:
-    language: fr
-    heightMax: 500
-    attribution: false
-    toolbarInline: true
-    tableColors: [ "#FFFFFF", "#FF0000" ]
+    language: en

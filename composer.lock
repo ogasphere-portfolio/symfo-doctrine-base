@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a44e54110b1a4f9e692786ff2deb02a",
+    "content-hash": "bdc0542e0f2be333b1e43e5c6f9092f7",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1907,7 +1907,7 @@
         },
         {
             "name": "kms/froala-editor-bundle",
-            "version": "dev-master",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/froala/KMSFroalaEditorBundle.git",
@@ -1937,7 +1937,6 @@
                 "symfony/phpunit-bridge": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -10362,9 +10361,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kms/froala-editor-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

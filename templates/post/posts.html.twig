@@ -16,12 +16,25 @@
             <tbody >
         
                 <th scope="row">{{ post.id }}</th>
-                <td><h4><a href="{{ path('post', {'id': post.id}) }}">{{ post.title }} </a></h4> <br>{{ post.body|slice(0, 1000)|raw }}</td>
+                <td><h4><a href="{{ path('post', {'id': post.id}) }}">{{ post.title }} </a></h4> <br>{{ post.body|slice(0, 1000)|raw }}<br>
+                <hr>
+               
+                    <h4>Liste des catégories</h4>
+
+                    {% for category in post.categories %}
+                        <span style="padding:2em;">{{ category.name}}</span>
+                    {% endfor %}
+                                    
+                                    
+                </td>
+                
+                
                 <td><a href="{{ path('modify_post', {'id': post.id}) }}">Modifier</a></td>
                 <td><a href="{{ path('delete_post', {'id': post.id}) }}">Supprimer</a></td>
-                
+                <hr>
+             {% endfor %}
             </tbody>
-            {% endfor %}
+            
         </table>
     </div>
    

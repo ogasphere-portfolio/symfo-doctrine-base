@@ -1,38 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Author{% endblock %}
-
 {% block body %}
-    <h1>Author</h1>
+<h1>Read</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ author.id }}</td>
-            </tr>
-            <tr>
-                <th>FirstName</th>
-                <td>{{ author.firstName }}</td>
-            </tr>
-            <tr>
-                <th>LastName</th>
-                <td>{{ author.lastName }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ author.createdAt ? author.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ author.updatedAt ? author.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('author_index') }}">back to list</a>
+{% for post in author.posts %}
+    
 
-    <a href="{{ path('author_edit', {'id': author.id}) }}">edit</a>
-
-    {{ include('author/_delete_form.html.twig') }}
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ post.title }}</h2>
+        <p class="blog-post-meta">{{ post.publishedAt|date("d/m/Y") }} by <a href="#">{{ post.author.firstname }}</a> dans
+            {% for category in post.categories %}
+            <span>
+                {{category.name}} 
+            </span>
+            {% endfor %}
+        </p>
+        <p>{{post.body}}</p>
+        <a href="{{path('posts')}}"><i class="fa fa-arrow-left"></i> Retour</a>
+    </div><!-- /.blog-post -->
+</div>
+{% endfor %}
 {% endblock %}
