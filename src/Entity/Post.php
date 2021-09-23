@@ -242,5 +242,9 @@ class Post
         return $this;
     }
 
-  
+    public function __toString(){
+        // to show the name of the Post in the select
+        return $this->title;
+        
+    }
 }

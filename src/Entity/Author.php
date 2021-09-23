@@ -2,16 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\AuthorRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AuthorRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=AuthorRepository::class)
  */
 class Author
 {
+   
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -46,6 +48,12 @@ class Author
 
     public function __construct()
     {
+        $this->setUpdatedAt(new \DateTimeImmutable('now'));    
+        
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTimeImmutable('now'));
+        }
+       
         $this->posts = new ArrayCollection();
     }
 
