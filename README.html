@@ -1,0 +1,33 @@
+<h2 id="challenge-intro-à-doctrine">Challenge Intro à Doctrine</h2>
+<p>Refaire les manips vues ce jour (depuis un projet Symfo vierge) :</p>
+<ul>
+<li>Configuration/Création Une BDD <em>blog</em> via ligne de commande.</li>
+<li>Création d'une entité <em>Post</em>, exemple de propriétés pour commencer :<ul>
+<li><code>title</code>, <code>body</code>, <code>nbLikes</code>, <code>publishedAt</code>, <code>createdAt</code>, <code>updatedAt</code>.</li></ul></li>
+<li>Ajout des informations de mapping.</li>
+<li>Créer une migration.</li>
+<li>Appliquer la migration.</li>
+<li>Créer quatre routes spécifiques pour :</li>
+<li>Lire un Post via son id + lire tous les Posts</li>
+<li>Bonus : Créer un Post depuis le contrôleur.</li>
+<li>Bonus : Mettre à jour (mettez à jour la propriété <code>updatedAt</code>).</li>
+<li>Bonus : Supprimer.</li>
+</ul>
+<p>=&gt; N'oubliez pas les redirections si besoin 😉</p>
+<p>=&gt; <a href="https://github.com/O-clock-Alumnis/fiches-recap/blob/master/symfony/themes/S2J1-Doctrine.md">Fiche récap' (succinte)</a></p>
+<p>=&gt; <a href="http://symfony.com/doc/current/doctrine.html">Documentation (dont infos à trier)</a></p>
+<h3 id="bonus-facultatif-nerd_face">Bonus (facultatif 🤓)</h3>
+<p>Créer un début d'interface d'admin permettant de :</p>
+<ul>
+<li>Lister les enregistrements.</li>
+<li>Afficher un enregistrement.</li>
+<li>Modifier (via un formulaire très simple si vous le faites, ne gérez pas forcément les erreurs, nous verrons comment intégrer cela avec Symfony de manière automatique).</li>
+<li>Supprimer (optionnel : avec un JS <code>confirm()</code> ou fenêtre modale Bootstrap).</li>
+<li>Ajouter une navigation pratique et les messages flash qui vont bien.</li>
+<li>Le tout avec Bootstrap histoire que ce soit un minimum joli, titres, tableau, boutons 😉</li>
+</ul>
+<h3 id="bonus-_lectures_">Bonus <em>lectures</em></h3>
+<ul>
+<li><a href="https://symfony.com/doc/current/doctrine.html#automatically-fetching-objects-paramconverter">Conversion de paramètre automatique</a></li>
+<li><a href="https://symfony.com/doc/current/doctrine.html#dummy-data-fixtures">Créer de fausses données (fixtures) <strong>spoiler</strong> pour la suite</a></li>
+</ul>
